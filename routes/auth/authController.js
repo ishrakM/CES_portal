@@ -1,4 +1,11 @@
-import initialize from "./passport-config.js";
+//import initializePassport from "./passport-config.js";
+import passport from "passport";
+import {Strategy} from 'passport-local';
+
+//import authLocal
+
+
+const LocalStrategy = Strategy.LocalStrategy;
 
 initializePassport(
     passport,
