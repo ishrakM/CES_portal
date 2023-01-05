@@ -1,11 +1,45 @@
+
+// if (process.env.NODE_ENV !== 'production') {
+//   require('dotenv').config()
+// }
+
 import express from "express";
+import passport from "passport";
+import flash from "express-flash";
+import session from "express-session";
+import methodOverride from "method-override";
+
+const app = express()
 
 
-const app = express();
+import  client  from './db/dbconnect.js';
 
 
+app.use(express.json());
+app.use('/public', express.static('public'));
 
+app.set('view-engine', 'ejs')
 
+app.use(express.urlencoded({ extended: false }))
+app.use(flash())
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
+
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(methodOverride('_method'))
+app.use(express.json())
+//app.use(setUser)
+
+import router from "./routes/index.js";
+
+app.use(router)
+
+// import login from "./routes/pass.js";
+// app.use("/login", login);
 
 
 // Base route to check server running
