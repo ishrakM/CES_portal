@@ -27,3 +27,5 @@ CREATE TABLE client(
     email VARCHAR(50),
     password VARCHAR(100)
 );
+
+INSERT INTO client (firstname, lasttname, description, creator_admin, email, password) VALUES ('kyle', 'p', 'boss', '420',  'k@k', 'abcd123456');

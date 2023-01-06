@@ -49,7 +49,13 @@ const functions = {
     clientList: async (req, res, next) => {
       try {
           
-          res.render('clientList.ejs')
+          const allClients = await adminHandler.getClient();
+
+          console.log('all client ' + allClients);
+          
+          res.render('../views/adminView/clientList.ejs', {
+            allClients : allClients
+          })
 
           // db queries to see all clients
         } catch (err) {

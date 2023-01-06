@@ -17,12 +17,14 @@ import client from "../../db/dbconnect.js";
 //   };
 
 
-const getClient = (request, response) => {
-  client.query('SELECT * FROM client ORDER BY id ASC', (error, results) => {
+const getClient = (req, res) => {
+  client.query('SELECT * FROM admin', (error, results) => {
     if (error) {
       throw error;
     }
-    response.status(200).json(results.rows);
+
+    console.log('results.rows ' + results.rows);
+    return results.rows;
   });
 };
 
