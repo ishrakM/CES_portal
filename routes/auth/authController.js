@@ -2,16 +2,19 @@
 import passport from "passport";
 import {Strategy} from 'passport-local';
 
+
+//app.set('view-engine', 'ejs')
+
 //import authLocal
 
 
 const LocalStrategy = Strategy.LocalStrategy;
 
-initializePassport(
-    passport,
-    email => users.find(user => user.email === email),
-    id => users.find(user => user.id === id),
-  )
+// initializePassport(
+//     passport,
+//     email => users.find(user => user.email === email),
+//     id => users.find(user => user.id === id),
+//   )
   
 
 const functions = {

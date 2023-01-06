@@ -1,5 +1,5 @@
 import fetch from "node-fetch";
-import client from "../../db/dbconnect";
+import client from "../../db/dbconnect.js";
 
 
 

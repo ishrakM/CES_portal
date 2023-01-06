@@ -1,4 +1,5 @@
-import adminHandler from "./adminHandler";
+import adminHandler from "./adminHandler.js";
+
 
 
 const functions = {
@@ -12,12 +13,13 @@ const functions = {
 
     clientDetail: async (req, res, next) => {
         try {
-            const id =  req.body.clientId;
+            //const id =  req.body.clientId;
 
-            const clientDetail = await adminHandler.getClientById(id)
+           // const clientDetail = await adminHandler.getClientById(id)
            // return adminHandler.getClientById;
-            res.render('clientDetail.ejs', { 
-              client : {name: 'Ishrak'}
+
+            res.render('../views/adminView/clientDetail.ejs', { 
+              //client : {name: 'Ishrak'}
             })
             // db queries to get a clients
           } catch (err) {
