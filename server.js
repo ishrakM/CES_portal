@@ -8,5 +8,5 @@ const port = 3000;
 // Server listen to port
 
 app.listen(port, () => {
-  console.log(`App is running on PORT: ${port}`);
+//console.log(`App is running on PORT: ${port}`);
 });

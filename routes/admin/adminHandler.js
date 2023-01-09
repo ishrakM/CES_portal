@@ -17,16 +17,35 @@ import client from "../../db/dbconnect.js";
 //   };
 
 
-const getClient = (req, res) => {
-  client.query('SELECT * FROM admin', (error, results) => {
+  const getClient = (req, res) => {
+     client.query('SELECT * FROM client', (error, results) =>  {
     if (error) {
       throw error;
     }
-
-    console.log('results.rows ' + results.rows);
-    return results.rows;
+    console.log('data ' + results)
+    //res.render('../views/adminView/clientList.ejs', { allClients: results.rows })
+    // var out = results.rows;
+     //console.log('results.rows ' + out);
+     return results.rows;
   });
-};
+  };
+
+
+//   async function getClient(){
+//    try {
+//     const res = await client.query("SELECT * FROM client");
+//     //console.log(res.rows);
+//     // const out = res.rows;
+//     // console.log(out);
+
+//     res.render('/clientList', { allClients: res.rows })
+
+//     // return out;
+//   } catch (error) {
+//     console.error(error);
+//   }
+
+// }
 
 const getClientById = (request, response) => {
   const id = parseInt(request.params.id);

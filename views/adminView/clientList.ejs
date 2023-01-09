@@ -454,12 +454,40 @@
                 <div class="row">
                   <div class="col-12">
                     <div class="table-responsive">
-                      <table id="order-listing" class="table">
+                      <!-- <table id="order-listing" class="table">
                         <thead>
                           <tr>
                             <td>Style</td>
                             <td> <%= allClients %></td>
                         </tr>
+                        </tbody>
+                      </table> -->
+
+                      <table id="order-listing" class="table">
+                        <thead>
+                          <tr>
+                            <th>id</th>
+                            <th>firstname</th>
+                            <th>lasttname</th>
+                            <th>description</th>
+                            <th>creator_admin</th>
+                            <th>email</th>
+                            <th>password</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <!-- Use a loop to iterate through the data and create table rows -->
+                          <% allClients.forEach(row => { %>
+                            <tr>
+                              <td><%= row.client_id %></td>
+                              <td><%= row.firstname %></td>
+                              <td><%= row.lasttname %></td>
+                              <td><%= row.description %></td>
+                              <td><%= row.creator_admin %></td>
+                              <td><%= row.email %></td>
+                              <td><%= row.password %></td>
+                            </tr>
+                          <% }); %>
                         </tbody>
                       </table>
                     </div>

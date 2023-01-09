@@ -1,4 +1,5 @@
 import adminHandler from "./adminHandler.js";
+import client from "../../db/dbconnect.js";
 
 
 
@@ -38,31 +39,39 @@ const functions = {
     },
     clientRegister: async (req, res, next) => {
       try {
-          
-          res.render('clientRegister.ejs')
 
-          // db queries to register a clients
+        await client.query(`INSERT INTO client`, (err, result) => {
+
+          res.render('../views/adminView/clientRegister.ejs')
+
+        })
+          
+          
+
+          client.end;
         } catch (err) {
           next(err);
         }
     },
     clientList: async (req, res, next) => {
-      try {
+     try {
           
-          const allClients = await adminHandler.getClient();
+       await client.query(`SELECT * FROM client`, (err, result) =>{
 
-          console.log('all client ' + allClients);
-          
-          res.render('../views/adminView/clientList.ejs', {
-            allClients : allClients
-          })
-
-          // db queries to see all clients
+            res.render('../views/adminView/clientList.ejs', {
+              allClients : result.rows
+            })
+          client.end;
+        })
         } catch (err) {
           next(err);
         }
     }
+  }
 
-}
+
+
+
+
 
 export default functions;

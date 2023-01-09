@@ -38,6 +38,24 @@ import router from "./routes/index.js";
 
 app.use(router)
 
+// app.get('/clientl', (req, res) => {
+//   const quer = 'SELECT * FROM client';
+
+//    client.query(quer, (err, result) => {
+//       if (err) {
+//         console.error(err);
+//         res.send('Error: Could not retrieve data from the database');
+//       } else {
+//         // Render a template file and pass the data as a variable
+
+//         //console.error(result.rows);
+//         res.render('../views/adminView/clientList.ejs', { allClients: result.rows });
+//       }
+//   })
+// })
+
+
+
 // import login from "./routes/pass.js";
 // app.use("/login", login);
 

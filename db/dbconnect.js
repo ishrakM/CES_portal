@@ -26,9 +26,9 @@ await client.connect((err) => {
   }
 });
 
-// console.log(client.database);
+ //console.log('db name '+ client.database);
 
-// await client.query(`SELECT * FROM admin`, (err, res) =>{
+// await client.query(`SELECT * FROM client`, (err, res) =>{
 //   if(!err){
 //     console.log(res.rows)
 //   }
