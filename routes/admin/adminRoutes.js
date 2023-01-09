@@ -19,7 +19,7 @@ const router = Router();
 router.get('/adminDashboard', middlewares.checkNotAuthenticated, controller.adminDashboard);
 router.get('/clientDetail', middlewares.checkNotAuthenticated, controller.clientDetail);
 router.get('/clientList', middlewares.checkNotAuthenticated, controller.clientList)
-router.post('/clientRegister');
+router.post('/clientRegister', controller.clientRegister);
 router.put('/clientEdit');
 
 

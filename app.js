@@ -61,6 +61,9 @@ app.use(router)
 
 
 // Base route to check server running
+
+
+
 app.get("/", (req, res) => {
     res.sendStatus(200);
   });
