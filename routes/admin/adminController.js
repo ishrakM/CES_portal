@@ -49,6 +49,8 @@ const functions = {
       console.log('inserted ' + JSON.stringify(result.rows));
       res.status(201).send(`User added with ID: ${result.rows[0].client_id}`);
 
+      client.end;
+
     } catch (error) {
       throw error;
     }

@@ -15,26 +15,26 @@ const initializePassport = require('./auth/passport-config')
 import { authUser, authRole, adminMid, clientMid, checkAuthenticated, checkNotAuthenticated, setUser } from "./controllers/authController"
   
 //const functions = {
-app.get('/', checkAuthenticated, authUser, (req, res) => {
-  res.render('index.ejs', { 
-    name: req.user.name,
-    email: req.user.email
-  })
-  // res.render('index.ejs', { 
-  //   email: req.user.email, 
-  //   password: req.user.pass
-  // })
-})
+// app.get('/', checkAuthenticated, authUser, (req, res) => {
+//   res.render('index.ejs', { 
+//     name: req.user.name,
+//     email: req.user.email
+//   })
+//   // res.render('index.ejs', { 
+//   //   email: req.user.email, 
+//   //   password: req.user.pass
+//   // })
+// })
 
 
   // ### login controller
-  app.get('/login', checkNotAuthenticated, (req, res) => {
+  app.get('/', checkNotAuthenticated, (req, res) => {
     res.render('login.ejs')
   })
   
-  app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
+  app.post('/', checkNotAuthenticated, passport.authenticate('local', {
     successRedirect: '/',
-    failureRedirect: '/login',
+    failureRedirect: '/',
     failureFlash: true
   }))
   
@@ -52,7 +52,7 @@ app.get('/', checkAuthenticated, authUser, (req, res) => {
         role: req.body.role,
         password: hashedPassword
       })
-      res.redirect('/login')
+      res.redirect('/')
     } catch {
       res.redirect('/register')
     }
